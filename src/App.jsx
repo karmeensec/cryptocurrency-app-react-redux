@@ -34,9 +34,17 @@ function App() {
           </div>
         </Layout>
 
-      </div>
 
-      <div className='footer'>
+        <div className='footer'>
+            <Typography.Title level={5} style={{ textAlign: 'center' }} >
+              CryptoMoon <br /> All rights reserved!
+            </Typography.Title>
+            <Space>
+              <Link to='/' >Home</Link>
+              <Link to='/exchanges' >Exchanges</Link>
+              <Link to='/news' >News</Link>
+            </Space>
+        </div>
 
       </div>
 
