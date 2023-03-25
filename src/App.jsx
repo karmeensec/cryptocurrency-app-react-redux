@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './App.css'
-import {Switch, Route, Link} from 'react-router-dom'
+import { Route, Link, Routes} from 'react-router-dom'
 import { Layout, Space, Typography } from 'antd'
-
+import { Navbar } from './components';
 
 function App() {
 
@@ -11,7 +11,7 @@ function App() {
     <div className='app'>
 
       <div className='navbar'>
-
+        <Navbar />
       </div>
 
       <div className='main'>
