@@ -21,7 +21,7 @@ const Navbar = () => {
             </Button> */}
         </div>
 
-        <Menu theme='dark' >
+        <Menu theme='light' >
           
             <Menu.Item icon={ <HomeOutlined /> } >
               <Link to='/' >Home</Link>
