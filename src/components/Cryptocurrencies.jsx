@@ -4,11 +4,13 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useGetCryptosQuery } from '../services/cryptoApi'
 
-const Cryptocurrencies = () => {
+const Cryptocurrencies = ({ simpleVersion }) => {
 
+  const counter = simpleVersion ? 10 : 100;
   const {data: cryptoList, isFetching} = useGetCryptosQuery();
   const [cryptos, setCryptos] = useState(cryptoList?.data?.coins);
   console.log(cryptos);
+  
 
   return (
 
