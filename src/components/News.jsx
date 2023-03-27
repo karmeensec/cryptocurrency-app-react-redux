@@ -1,6 +1,6 @@
 import { Avatar, Card, Col, Row, Select, Typography } from 'antd'
 import moment from 'moment/moment'
-import React from 'react'
+import React, { useState } from 'react'
 import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi'
 
 const { Title, Text } = Typography;
@@ -8,6 +8,8 @@ const { Option } = Select;
 const demo = '';
 
 const News = ({ simpleVersion }) => {
+
+  const [newsCategory, setNewsCategory] = useState('Cryptocurrency');
 
   const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory: 'Cryptocurrency', counter: simpleVersion ? 6: 12 });
   console.log(cryptoNews);
@@ -18,7 +20,15 @@ const News = ({ simpleVersion }) => {
     
     <Row gutter={[24, 24]}>
 
-      
+      {!simpleVersion && (
+        <Col span={24}>
+          <Select showSearch className='select-news' placeholder='Select a category' optionFilterProp='children' onChange={ (value)=> console.log(value) } 
+            filterOption={ (input, option)=> option.children.toLowerCase().indexOf(input.toLowerCase()) > 0 }
+          >
+
+          </Select>
+        </Col>
+      )}
 
         {cryptoNews.value.map((news, i)=> (
           <Col xs={24} sm={12} lg={8} key={i}>
