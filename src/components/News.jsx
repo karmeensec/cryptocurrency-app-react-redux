@@ -2,6 +2,8 @@ import { Avatar, Card, Col, Row, Select, Typography } from 'antd'
 import moment from 'moment/moment'
 import React, { useState } from 'react'
 import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi'
+import { useGetCryptosQuery } from '../services/cryptoApi'
+
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -11,8 +13,8 @@ const News = ({ simpleVersion }) => {
 
   const [newsCategory, setNewsCategory] = useState('Cryptocurrency');
 
-  const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory: 'Cryptocurrency', counter: simpleVersion ? 6: 12 });
-  console.log(cryptoNews);
+  const { data: cryptoNews } = useGetCryptoNewsQuery({ newsCategory, counter: simpleVersion ? 6: 12 });
+  const {data} = useGetCryptosQuery(100);
 
   if (!cryptoNews?.value) return 'Loading...';
 
@@ -25,6 +27,8 @@ const News = ({ simpleVersion }) => {
           <Select showSearch className='select-news' placeholder='Select a category' optionFilterProp='children' onChange={ (value)=> console.log(value) } 
             filterOption={ (input, option)=> option.children.toLowerCase().indexOf(input.toLowerCase()) > 0 }
           >
+            
+            <Option value='Cryptocurrency' >Cryptocurrency</Option>
 
           </Select>
         </Col>
