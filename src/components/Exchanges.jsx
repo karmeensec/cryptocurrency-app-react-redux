@@ -5,6 +5,7 @@ const Exchanges = () => {
   return (
 
     <div>Exchanges</div>
+  // Yet to be implemented
     
   )
 }

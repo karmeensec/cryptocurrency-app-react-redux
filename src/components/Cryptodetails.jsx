@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom'
 import { MoneyCollectOutlined, DollarCircleOutlined, FundViewOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckCircleOutlined, FieldNumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/cryptoApi'
 import { LineChart } from '../components';
+import Loader from './Loader'
 
 const { Text, Title } = Typography;
 const { Option} = Select;
@@ -20,7 +21,7 @@ const Cryptodetails = () => {
 
   console.log(data);
 
-  if (isFetching) return 'Loading...';
+  if (isFetching) return <Loader />;
 
   const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 

@@ -16,7 +16,7 @@ function App() {
 
       <div className='main'>
 
-        <Layout style={{ background: '#FDFEFE', boxShadow: 'rgba(240, 46, 170, 0.4) -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px' }}>
+        <Layout style={{ background: '#FDFEFE', boxShadow: 'rgba(0, 91, 202, 0.5) -5px 5px, rgba(0, 91, 202, 0.4) -10px 10px, rgba(0, 91, 202, 0.3) -15px 15px, rgba(0, 91, 202, 0.2) -20px 20px, rgba(0, 91, 202, 0.08) -25px 25px' }}>
           <div className='routes'>
             <Routes>
 
@@ -35,7 +35,7 @@ function App() {
         </Layout>
 
 
-        <div className='footer'>
+        <div className='footer' style={{ boxShadow: 'rgba(0, 91, 202, 0.5) -5px 5px, rgba(0, 91, 202, 0.4) -10px 10px, rgba(0, 91, 202, 0.3) -15px 15px, rgba(0, 91, 202, 0.2) -20px 20px, rgba(0, 91, 202, 0.08) -25px 25px' }} >
             <Typography.Title level={5} style={{ textAlign: 'center' }} >
               CryptoMoon <br /> All rights reserved!
             </Typography.Title>

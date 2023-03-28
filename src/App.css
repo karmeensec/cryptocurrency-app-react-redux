@@ -291,7 +291,7 @@ a:hover{
 }
 
 .select-news{
-    width: 180px;
+    width: 200px;
 }
 .news-card{
     min-height: 300px !important;
@@ -324,10 +324,10 @@ width: 70%;
     display: flex;
     justify-content: space-between;
     gap: 50px;
-    color: #0071bd;
+    color: #2E86C1;
 }
 .chart-title{
-    color: #0071bd !important;
+    color: #2E86C1 !important;
 }
 .price-container{
     display: flex !important;
@@ -355,7 +355,7 @@ width: 70%;
     margin: 0px 10px !important;
 }
 .search-crypto{
-    margin: 20px auto 30px auto;
+    margin: 2rem 0;
     width: 300px;
 }
 .crypto-card-container{
@@ -373,7 +373,7 @@ width: 70%;
 }
 
 .footer {
-    background-color: #001529;
+    background-color: #FDFEFE;
     display: flex;
     flex-direction: column;
     padding: 20px;
