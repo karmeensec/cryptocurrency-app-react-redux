@@ -1,11 +1,15 @@
 import { MoneyCollectOutlined } from '@ant-design/icons'
 import { BulbOutlined, FundViewOutlined, HomeOutlined, MenuFoldOutlined } from '@ant-design/icons/lib/icons'
 import { Avatar, Button, Menu, Typography } from 'antd'
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import icon from '../assets/cryptocurrency.png';
 
 const Navbar = () => {
+
+  const [activeMenu, setActiveMenu] = useState(true);
+  const [screenSize, setScreenSize] = useState(null);
+
 
   return (
 
