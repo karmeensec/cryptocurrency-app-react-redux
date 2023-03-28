@@ -69,7 +69,7 @@ const Cryptodetails = () => {
             <Title level={3} className='coin-details-heading'>
               {cryptoDetails.name} Value statistics
             </Title>
-            <p>A Summary of the statistics of Bitcoin </p>
+            <p>A Summary of the statistics of {cryptoDetails.name} with currency, rank and trading volume. </p>
           </Col>
 
           {stats.map(({title, value, icon}) => (
@@ -93,7 +93,7 @@ const Cryptodetails = () => {
             <Title level={3} className='coin-details-heading'>
               Other Crypto statistics
             </Title>
-            <p>Explore the other values as well </p>
+            <p>Explore the other statistics of {cryptoDetails.name} as well  with currency, rank and trading volume. </p>
           </Col>
 
           {genericStats.map(({title, value, icon}) => (
@@ -110,6 +110,34 @@ const Cryptodetails = () => {
           ))}
 
         </Col>
+
+      </Col>
+
+      <Col className='coin-desc-link'>
+
+          <Row className='coin-desc'>
+            <Title className='coin-details-heading' level={3} >
+              What is the {cryptoDetails.name}?
+              {HTMLReactParser(cryptoDetails.description)}
+            </Title>
+          </Row>
+
+          <Col className='coin-links'>
+
+            <Title level={3} className='coin-details-heading' >
+              {cryptoDetails.name} Links
+            </Title>
+
+            {cryptoDetails.links.map((link)=> (
+              <Row className='coin-link' key={link.name} >
+                <Title className='link-name' level={5} >
+                  {link.type}
+                </Title>
+                <a href={link.url} target='_blank' rel='noreferrer' > {link.name} </a>
+              </Row>
+            ))}
+
+          </Col>
 
       </Col>
 
