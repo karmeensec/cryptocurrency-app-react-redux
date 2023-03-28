@@ -4,7 +4,7 @@ import millify from 'millify'
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { MoneyCollectOutlined, DollarCircleOutlined, FundViewOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckCircleOutlined, FieldNumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
-import { useGetCryptoDetailsQuery } from '../services/cryptoApi'
+import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/cryptoApi'
 import { LineChart } from '../components';
 
 const { Text, Title } = Typography;
@@ -15,6 +15,7 @@ const Cryptodetails = () => {
   const {coinId} = useParams();
   const [timePeriod, setTimePeriod] = useState('7d');
   const {data, isFetching} = useGetCryptoDetailsQuery(coinId);
+  const {data: coinHistory} = useGetCryptoHistoryQuery({coinId, timePeriod});
   const cryptoDetails = data?.data?.coin;
 
   console.log(data);
@@ -60,7 +61,7 @@ const Cryptodetails = () => {
         
       </Select>
 
-      <LineChart />
+      <LineChart  coinHistory = {coinHistory} coinName = {cryptoDetails.name} currentPrice = { millify(cryptoDetails.price) } />
 
       <Col className='stats-container'>
 
