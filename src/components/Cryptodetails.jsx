@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { MoneyCollectOutlined, DollarCircleOutlined, FundViewOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckCircleOutlined, FieldNumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import { useGetCryptoDetailsQuery } from '../services/cryptoApi'
+import { LineChart } from '../components';
 
 const { Text, Title } = Typography;
 const { Option} = Select;
@@ -59,7 +60,7 @@ const Cryptodetails = () => {
         
       </Select>
 
-      {/* Linechart */}
+      <LineChart />
 
       <Col className='stats-container'>
 
