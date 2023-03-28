@@ -12,7 +12,7 @@ const { Option} = Select;
 const Cryptodetails = () => {
 
   const {coinId} = useParams();
-  const [timePeriod, setTimePeriod] = useState('7 days');
+  const [timePeriod, setTimePeriod] = useState('7d');
   const {data, isFetching} = useGetCryptoDetailsQuery(coinId);
   const cryptoDetails = data?.data?.coin;
 
@@ -40,7 +40,80 @@ const Cryptodetails = () => {
 
   return (
 
-    <div>Cryptodetails {coinId} </div>
+    <Col className='coin-detail-container'>
+      
+      <Col className='coin-heading-container'>
+        <Title className='coin-name' level={2}>
+          {cryptoDetails.name} ({cryptoDetails.slug}) Price
+        </Title>
+        <p>
+          {cryptoDetails.name} live price in US dollars. Explore value statistics, market cap and supply statistics.
+        </p>
+      </Col>
+
+      <Select defaultValue='7d' className='select-timeperiod' placeholder='Select Time Period' onChange={ (value)=> setTimePeriod(value) } >
+
+        {time.map((date)=> (
+          <Option key={date} > {date} </Option>
+        ))}
+        
+      </Select>
+
+      {/* Linechart */}
+
+      <Col className='stats-container'>
+
+        <Col className='coin-value-statistics'>
+
+          <Col className='coin-value-statistics-heading'>
+            <Title level={3} className='coin-details-heading'>
+              {cryptoDetails.name} Value statistics
+            </Title>
+            <p>A Summary of the statistics of Bitcoin </p>
+          </Col>
+
+          {stats.map(({title, value, icon}) => (
+            <Col className='coin-stats'>
+
+              <Col className='coin-stats-name'>
+                <Text> {icon} </Text>
+                <Text> {title} </Text>
+              </Col>
+
+              <Text className='stats'> {value} </Text>
+
+            </Col>
+          ))}
+
+        </Col>
+
+        <Col className='other-stats-info'>
+
+          <Col className='coin-value-statistics-heading'>
+            <Title level={3} className='coin-details-heading'>
+              Other Crypto statistics
+            </Title>
+            <p>Explore the other values as well </p>
+          </Col>
+
+          {genericStats.map(({title, value, icon}) => (
+            <Col className='coin-stats'>
+
+              <Col className='coin-stats-name'>
+                <Text> {icon} </Text>
+                <Text> {title} </Text>
+              </Col>
+
+              <Text className='stats'> {value} </Text>
+
+            </Col>
+          ))}
+
+        </Col>
+
+      </Col>
+
+    </Col>
     
   )
 }
